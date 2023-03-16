@@ -1,7 +1,7 @@
 function Cau3(users) {
     const convertArr = users.map(user => {
-        const { id, ...othersUserAttributes } = user;
-        return { [id]: othersUserAttributes };
+        const { id, ...otherUserAttributes } = user;
+        return { [id]: otherUserAttributes };
     });
 
     console.log(convertArr);
