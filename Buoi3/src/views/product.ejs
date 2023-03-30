@@ -9,7 +9,7 @@
                 <th>Rating</th>
             </tr>
         </thead>
-        <% data.forEach(product=> { %>
+        <% data.forEach(product => { %>
             <tr>
                 <td><%- product.title %></td>
                 <td><%- product.price %>&dollar;</td>
@@ -17,6 +17,6 @@
                 <td><img src="<%- product.image %>" alt="Not found"></td>
                 <td><%- product.rating.rate %> (<%- product.rating.count %>)</td>
             </tr>
-            <% }); %>
+        <% }); %>
     </table>
 <%- include('footer'); -%>
