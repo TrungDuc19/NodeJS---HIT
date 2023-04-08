@@ -35,7 +35,15 @@ function getById(id) {
 
 function updateById(id, updateProduct) {
     const products = readFile();
-    const updateProducts = products.map(product => product.id != id ? product : updateProduct);
+    const updateProducts = products.map(product => {
+        if (product.id == id) {
+            return {
+                ...product,
+                ...updateProduct
+            }
+        }
+        return product;
+    });
     writeFile(updateProducts);
     return updateProducts;
 }
