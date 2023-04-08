@@ -15,42 +15,42 @@ const writeFile = products => {
     });
 }
 
-class Product {
-    constructor(product) {
-        this.product = product
-    }
-
-    static getAll() {
-        const products = readFile();
-        products.sort((a, b) => a.price - b.price);
-        return products;
-    }
-
-    static create(newProduct) {
-        const products = readFile();
-        products.push(newProduct);
-        writeFile(products);
-        return products;
-    }
-
-    static getById(id) {
-        const products = readFile();
-        return products.find(p => p.id == id);
-    }
-
-    static updateById(id, updateProduct) {
-        const products = readFile();
-        const updateProducts = products.map(product => product.id != id ? product : updateProduct);
-        writeFile(updateProducts);
-        return updateProducts;
-    }
-
-    static deleteById(id) {
-        const products = readFile();
-        const deleteProducts = products.filter(product => product.id != id);
-        writeFile(deleteProducts);
-        return deleteProducts;
-    }
+function getAll() {
+    const products = readFile();
+    products.sort((a, b) => a.price - b.price);
+    return products;
 }
 
-module.exports = Product;
+function create(newProduct) {
+    const products = readFile();
+    products.push(newProduct);
+    writeFile(products);
+    return products;
+}
+
+function getById(id) {
+    const products = readFile();
+    return products.find(p => p.id == id);
+}
+
+function updateById(id, updateProduct) {
+    const products = readFile();
+    const updateProducts = products.map(product => product.id != id ? product : updateProduct);
+    writeFile(updateProducts);
+    return updateProducts;
+}
+
+function deleteById(id) {
+    const products = readFile();
+    const deleteProducts = products.filter(product => product.id != id);
+    writeFile(deleteProducts);
+    return deleteProducts;
+}
+
+module.exports = {
+    getAll,
+    create,
+    getById,
+    updateById,
+    deleteById,
+};
